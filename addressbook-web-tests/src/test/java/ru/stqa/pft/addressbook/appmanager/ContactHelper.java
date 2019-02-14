@@ -12,7 +12,7 @@ public class ContactHelper extends HelperBase {
   }
 
   public void returnToHomePage() {
-    click(By.linkText("home"));
+    click(By.linkText("home page"));
   }
 
   public void enterNewContact() {
@@ -29,5 +29,25 @@ public class ContactHelper extends HelperBase {
 
   public void initContactCreation() {
     click(By.linkText("add new"));
+  }
+
+  public void initContactModification() {
+    click(By.cssSelector("[title='Edit']"));
+  }
+
+  public void submitContactModification() {
+    click(By.name("update"));
+  }
+
+  public void selectContact() {
+    click(By.name("selected[]"));
+  }
+
+  public void deleteSelectedContact() {
+    click(By.cssSelector("[value='Delete']"));
+  }
+
+  public void submitContactDeletion() {
+    wd.switchTo().alert().accept();
   }
 }
