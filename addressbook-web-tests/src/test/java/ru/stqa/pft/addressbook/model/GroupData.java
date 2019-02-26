@@ -8,6 +8,13 @@ public class GroupData {
   private final String header;
   private final String footer;
 
+
+
+  @Override
+  public int hashCode() {
+    return name != null ? name.hashCode() : 0;
+  }
+
   public GroupData(int id, String name, String header, String footer) {
     this.id = id;
     this.name = name;
@@ -18,7 +25,7 @@ public class GroupData {
 
 
   public GroupData(String name, String header, String footer) {
-    this.id = 0;
+    this.id = Integer.MAX_VALUE;
     this.name = name;
     this.header = header;
     this.footer = footer;
@@ -48,6 +55,10 @@ public class GroupData {
             '}';
   }
 
+  public void setId(int id) {
+    this.id = id;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
@@ -55,18 +66,6 @@ public class GroupData {
 
     GroupData groupData = (GroupData) o;
 
-    if (id != groupData.id) return false;
     return name != null ? name.equals(groupData.name) : groupData.name == null;
-  }
-
-  @Override
-  public int hashCode() {
-    int result = id;
-    result = 31 * result + (name != null ? name.hashCode() : 0);
-    return result;
-  }
-
-  public void setId(int id) {
-    this.id = id;
   }
 }
