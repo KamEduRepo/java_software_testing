@@ -10,10 +10,7 @@ public class GroupData {
 
 
 
-  @Override
-  public int hashCode() {
-    return name != null ? name.hashCode() : 0;
-  }
+
 
   public GroupData(int id, String name, String header, String footer) {
     this.id = id;
@@ -67,5 +64,10 @@ public class GroupData {
     GroupData groupData = (GroupData) o;
 
     return name != null ? name.equals(groupData.name) : groupData.name == null;
+  }
+
+  @Override
+  public int hashCode() {
+    return name != null ? name.hashCode() : 0;
   }
 }
